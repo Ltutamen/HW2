@@ -16,16 +16,17 @@ public class Model {
     public Model() {
         this.currentState = MODEL_STATE.ENTRANCE;
         this.guesses = new ArrayDeque<>();
-        this.secretNumber = new Random().nextInt(DEFAULT_LIMIT);
         this.lowerBound = 0;
         this.upperBound = DEFAULT_LIMIT;
+
+        setSecretNumber(DEFAULT_LIMIT);
     }
 
     public void setSecretNumber(int limit) {
         this.upperBound = limit;
         this.lowerBound = 0;
 
-        this.secretNumber = new Random().nextInt(limit);
+        this.secretNumber = new Random().nextInt(limit-1) + 1;
     }
 
     public boolean isRunning() {

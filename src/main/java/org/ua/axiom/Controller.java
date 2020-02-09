@@ -1,5 +1,6 @@
 package org.ua.axiom;
 
+import java.io.InputStream;
 import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -13,8 +14,8 @@ public class Controller {
         this.viewer = viewer;
     }
 
-    public void run() {
-        Scanner scanner = new Scanner(System.in);
+    public void run(InputStream inputSource) {
+        Scanner scanner = new Scanner(inputSource);
 
         viewer.output(Viewer.LIMIT_REQUEST);
         model.setSecretNumber(Integer.parseInt(getInput(scanner)));
