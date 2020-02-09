@@ -34,8 +34,9 @@ public class Model {
 
     public String acceptInput(String input) {
         int iinput = Integer.parseInt(input);
-        StringBuilder result = new StringBuilder();
         guesses.add(iinput);
+
+        StringBuilder result = new StringBuilder();
 
         if(iinput > secretNumber) {
             upperBound = iinput;
@@ -47,11 +48,8 @@ public class Model {
             this.currentState = MODEL_STATE.OVER;
             return Viewer.CORRECT_INPUT;
         }
-        result.
-                append("\nAnswer lies between ").
-                append(lowerBound).
-                append(" and ").
-                append(upperBound);
+
+        result.append(Viewer.getBoundInfo(this));
 
         return result.toString();
     }

@@ -1,5 +1,7 @@
 package org.ua.axiom;
 
+import javax.jws.WebParam;
+
 public class Viewer {
     public static final String WRONG_INPUT_FORMAT_MSG = "Wrong input format, try again";
     public static final String CORRECT_INPUT_FORMAT_MSG = "";
@@ -26,6 +28,18 @@ public class Viewer {
                 append(" tries to win the game, that's ").
                 append((int)(model.getGuesses().size() - Math.log(model.getUpperBound() - model.getLowerBound())) + 1).
                 append(" more than needed in the worst case!");
+
+        return result.toString();
+    }
+
+    public static String getBoundInfo(Model model) {
+        StringBuilder result = new StringBuilder();
+
+        result.
+                append("\nAnswer lies between ").
+                append(model.getLowerBound()).
+                append(" and ").
+                append(model.getUpperBound());
 
         return result.toString();
     }
